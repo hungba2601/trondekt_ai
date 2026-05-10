@@ -17,6 +17,7 @@ function App() {
   const [generatedExams, setGeneratedExams] = useState<string[]>([]);
   const [error, setError] = useState('');
   
+  const [isParsing, setIsParsing] = useState(false);
   const [progressText, setProgressText] = useState('');
   const [isPaused, setIsPaused] = useState(false);
   const [pendingExamIndex, setPendingExamIndex] = useState<number | null>(null);
@@ -45,18 +46,24 @@ function App() {
       setIsPaused(false);
       setPendingExamIndex(null);
       setProgressText('');
+      setIsParsing(true); // Bắt đầu đọc file
       
       try {
         const text = await parseFileToText(selectedFile);
+        if (!text || text.trim().length < 20) {
+          throw new Error('File không có nội dung văn bản hoặc không đọc được. Vui lòng thử file khác.');
+        }
         setFileContent(text);
       } catch (err: any) {
         setError(err?.message || 'Không thể đọc file. Vui lòng thử lại với file DOCX hoặc PDF mới.');
         setFile(null);
         setFileContent('');
+      } finally {
+        setIsParsing(false); // Kết thúc đọc
       }
-
     }
   };
+
 
   const processExamsAsync = async (startIndex: number, currentApiKey: string, existingExams: string[]) => {
     setIsProcessing(true);
@@ -216,14 +223,17 @@ function App() {
                   className="btn btn-primary" 
                   style={{ width: '100%', height: '56px', fontSize: '1.2rem' }}
                   onClick={handleShuffle}
-                  disabled={isProcessing || !file}
+                  disabled={isProcessing || isParsing || !file}
                 >
-                  {isProcessing ? (
+                  {isParsing ? (
+                    <> <div className="loader"></div> Đang đọc file... </>
+                  ) : isProcessing ? (
                     <> <div className="loader"></div> {progressText || "Đang xử lý..."} </>
                   ) : (
                     <> <RefreshCw size={24} /> Bắt đầu Đảo Đề </>
                   )}
                 </button>
+
               )}
             </div>
           </div>
