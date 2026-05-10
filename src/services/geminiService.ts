@@ -100,28 +100,29 @@ const formatOptionsToTable = (options: string[]) => {
   else if (maxLen < 25) cols = 2;
 
 
-  let tableHtml = '<table style="width: 100%; border-collapse: collapse; border: none; margin-top: 8px; margin-bottom: 12px; font-family: Times New Roman, serif;">';
+  let tableHtml = '<table class="no-border-table" border="0" cellspacing="0" cellpadding="0" style="width: 100%; border-collapse: collapse; border: none; margin-top: 8px; margin-bottom: 12px; font-family: Times New Roman, serif;">';
   const labels = ['A', 'B', 'C', 'D'];
 
   if (cols === 4) {
     tableHtml += '<tr>';
     options.forEach((opt, i) => {
-      tableHtml += `<td style="width: 25%; vertical-align: top; padding: 2px; border: none;">${labels[i]}. ${opt}</td>`;
+      tableHtml += `<td style="width: 25%; vertical-align: top; padding: 2px; border: none !important;">${labels[i]}. ${opt}</td>`;
     });
     tableHtml += '</tr>';
   } else if (cols === 2) {
     tableHtml += '<tr>';
-    tableHtml += `<td style="width: 50%; vertical-align: top; padding: 2px; border: none;">A. ${options[0]}</td>`;
-    tableHtml += `<td style="width: 50%; vertical-align: top; padding: 2px; border: none;">B. ${options[1]}</td>`;
+    tableHtml += `<td style="width: 50%; vertical-align: top; padding: 2px; border: none !important;">A. ${options[0]}</td>`;
+    tableHtml += `<td style="width: 50%; vertical-align: top; padding: 2px; border: none !important;">B. ${options[1]}</td>`;
     tableHtml += '</tr><tr>';
-    tableHtml += `<td style="width: 50%; vertical-align: top; padding: 2px; border: none;">C. ${options[2]}</td>`;
-    tableHtml += `<td style="width: 50%; vertical-align: top; padding: 2px; border: none;">D. ${options[3]}</td>`;
+    tableHtml += `<td style="width: 50%; vertical-align: top; padding: 2px; border: none !important;">C. ${options[2]}</td>`;
+    tableHtml += `<td style="width: 50%; vertical-align: top; padding: 2px; border: none !important;">D. ${options[3]}</td>`;
     tableHtml += '</tr>';
   } else {
     options.forEach((opt, i) => {
-      tableHtml += `<tr><td style="width: 100%; vertical-align: top; padding: 2px; border: none;">${labels[i]}. ${opt}</td></tr>`;
+      tableHtml += `<tr><td style="width: 100%; vertical-align: top; padding: 2px; border: none !important;">${labels[i]}. ${opt}</td></tr>`;
     });
   }
+
 
   tableHtml += '</table>';
   return tableHtml;
