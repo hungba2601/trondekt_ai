@@ -214,8 +214,7 @@ Lưu ý:
     
     let answerKeyHtml = '<div style="page-break-before: always; border-top: 2px solid #000; margin-top:30px; font-family: Times New Roman, serif; padding-top: 20px;">';
     answerKeyHtml += `<h2 style="text-align:center; color: #b91c1c; font-size: 18pt;">BẢNG ĐÁP ÁN ĐỀ SỐ ${examIndex} - MÃ ĐỀ: ${code}</h2>`;
-
-    answerKeyHtml += `<table border="1" style="width:100%; border-collapse:collapse; text-align:center; margin-top: 15px;"><tr><th style="background: #f3f4f6; padding: 8px;">Câu</th><th style="background: #f3f4f6; padding: 8px;">Đáp án</th></tr>`;
+    answerKeyHtml += `<table class="bordered-table" style="width:100%; border-collapse:collapse; text-align:center; margin-top: 15px;"><tr><th style="background: #f3f4f6; padding: 8px;">Câu</th><th style="background: #f3f4f6; padding: 8px;">Đáp án</th></tr>`;
 
     let globalQIdx = 1;
 
