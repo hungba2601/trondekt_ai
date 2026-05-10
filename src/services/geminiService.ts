@@ -96,8 +96,9 @@ const formatOptionsToTable = (options: string[]) => {
   }));
 
   let cols = 1;
-  if (maxLen < 15) cols = 4;
-  else if (maxLen < 40) cols = 2;
+  if (maxLen < 12) cols = 4;
+  else if (maxLen < 25) cols = 2;
+
 
   let tableHtml = '<table style="width: 100%; border-collapse: collapse; border: none; margin-top: 8px; margin-bottom: 12px; font-family: Times New Roman, serif;">';
   const labels = ['A', 'B', 'C', 'D'];
