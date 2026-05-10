@@ -54,10 +54,11 @@ const parsePdf = async (file: File): Promise<string> => {
     let pageText = '';
     
     for (const item of content.items as any[]) {
+      const str = item.str || '';
       if (lastY !== -1 && Math.abs(item.transform[5] - lastY) > 5) {
         pageText += '<br/>';
       }
-      pageText += item.str + ' ';
+      pageText += str + ' ';
       lastY = item.transform[5];
     }
     
@@ -66,4 +67,5 @@ const parsePdf = async (file: File): Promise<string> => {
   
   return html;
 };
+
 
