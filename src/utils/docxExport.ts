@@ -9,7 +9,7 @@ export const exportToDocx = async (htmlContent: string, fileName: string) => {
       <style>
         body { font-family: 'Times New Roman', serif; line-height: 1.5; }
         table { border-collapse: collapse; width: 100%; }
-        td, th { border: 1px solid black; padding: 5px; }
+        .bordered-table td, .bordered-table th { border: 1px solid black; padding: 5px; }
         .question-block { margin-bottom: 20px; page-break-inside: avoid; }
       </style>
     </head>
