@@ -171,7 +171,7 @@ function App() {
               <UploadCloud size={48} className="file-upload-icon" />
               <div>
                 <span style={{ fontWeight: 600, color: 'var(--text)', display: 'block', fontSize: '1.1rem' }}>Tải lên đề gốc</span>
-                <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Hỗ trợ định dạng .DOCX và .PDF</span>
+                <span style={{ fontSize: '0.9rem', color: '#b91c1c', fontWeight: 'bold' }}> UP FILE DẠNG PDF LÊN ĐỂ XỬ LÝ </span>
               </div>
               {file && (
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--secondary)', background: 'rgba(16, 185, 129, 0.1)', padding: '0.5rem 1rem', borderRadius: '20px' }}>
